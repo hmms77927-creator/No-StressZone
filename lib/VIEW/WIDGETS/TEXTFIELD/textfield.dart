@@ -1,0 +1,112 @@
+import 'package:flutter/material.dart';
+import 'package:new_project_1/Constant/appColors.dart';
+
+
+class HeaderField extends StatelessWidget {
+  final String text;
+  final Icon? prefixIcon;
+  const HeaderField({super.key, required this.text, this.prefixIcon});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.white.withOpacity(0.45), // 45% white
+            Colors.white.withOpacity(0.0),  // 0% white
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(100),
+      ),
+      child: TextField(
+        style: TextStyle(
+          color: AppColors.white
+        ),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(100),
+            borderSide: BorderSide.none,
+          ),
+          prefixIcon: prefixIcon,
+          hintText: text,
+          hintStyle: TextStyle(color: AppColors.white),
+          filled: true,
+          fillColor: Colors.transparent,
+        ),
+      ),
+    );
+  }
+}
+
+//positivefield
+class PositiveTextField extends StatelessWidget {
+  final String text;
+  const PositiveTextField({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      style: TextStyle(
+        color: AppColors.white, // user jo text likhe ga us ka color red ho jaye ga
+        fontSize: 18,
+      ),
+      maxLines: 4,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(color: AppColors.white,width: 1),
+        ),
+
+        hintText: text,
+        hintStyle: TextStyle(fontSize: 18,fontWeight:FontWeight.w400,color: AppColors.white),
+        filled: true,
+        fillColor: AppColors.cardcolor,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(color: AppColors.white,width: 1),
+        )
+      ),
+    );
+  }
+}
+
+//video textfield
+class VideoTextField extends StatelessWidget {
+  final String text;
+  const VideoTextField({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 353,
+      height: 61,
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          colors: [
+            Colors.white.withOpacity(0.45),
+            Colors.white.withOpacity(0.0),
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        borderRadius: BorderRadius.circular(15),
+      ),
+      child: TextField(
+        style: TextStyle(color: AppColors.white),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none,
+          ),
+          hintText: text,
+          hintStyle: TextStyle(color: AppColors.white),
+          filled: true,
+          fillColor: Colors.transparent,
+        ),
+      ),
+    );;
+  }
+}
