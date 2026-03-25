@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:new_project_1/Constant/appColors.dart';
 import 'package:new_project_1/Constant/appImages.dart';
 import 'package:new_project_1/VIEW/WIDGETS/BUTTONS/app_buttons.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CARDS/cards.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CONTAINERS/containers.dart';
-
+import '../../Routes/app_pages.dart';
 import '../ADD_CONTACTS/add_contacts.dart';
 import '../CREATE_GROUP/create_group.dart';
-
 class Community extends StatefulWidget {
   const Community({super.key});
-
   @override
   State<Community> createState() => _CommunityState();
 }
-
 class _CommunityState extends State<Community> {
   @override
   Widget build(BuildContext context) {
@@ -58,8 +57,9 @@ child: SafeArea(child: SingleChildScrollView(
               width:171,
               child: GestureDetector(
                 onTap: (){
-                  Navigator.push(context,MaterialPageRoute(builder: (context)=>CreateGroup()) );
-                },
+
+                  Get.toNamed(AppPages.createGroup);
+                  },
                 child: communitytopcard(text: 'Create Group',),
               )),
           SizedBox(
@@ -67,8 +67,8 @@ child: SafeArea(child: SingleChildScrollView(
               width:171,
               child: GestureDetector(
                   onTap: (){
-                    Navigator.push(context,MaterialPageRoute(builder: (context)=>addcontacts()) );
-
+                    AppPages.addContacts;
+                    Get.toNamed( AppPages.addContacts);
                   },
                   child: communitytopcard(text: 'Add Contact'))),
         ],
@@ -114,7 +114,7 @@ child: SafeArea(child: SingleChildScrollView(
   ),
 ),
 ),
-      )
+      ),
     );
   }
 }

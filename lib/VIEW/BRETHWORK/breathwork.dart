@@ -5,7 +5,6 @@ import '../../Constant/appColors.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 import '../WIDGETS/CONTAINERS/containers.dart';
 import '../WIDGETS/TEXTFIELD/textfield.dart';
-
 class Breathwork extends StatefulWidget {
   const Breathwork({super.key});
   @override
@@ -157,16 +156,25 @@ class _BreathworkState extends State<Breathwork> {
                     children: [
                       SizedBox(
                           width: 120,
-                          child: Videobottombutton(
-                              text: 'Morning Flow', onPressed: () {})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(
+                                text: 'Morning Flow', onPressed: () {}),
+                          )),
                       SizedBox(
                           width: 140,
-                          child: Videobottombutton(
-                              text: 'Mid-Day Stretch', onPressed: () {})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(
+                                text: 'Mid-Day Stretch', onPressed: () {}),
+                          )),
                       SizedBox(
                           width: 140,
-                          child: Videobottombutton(
-                              text: 'Evening Relax', onPressed: () {})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(
+                                text: 'Evening Relax', onPressed: () {}),
+                          )),
                     ],
                   ),
                 ),

@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:new_project_1/Constant/appColors.dart';
 import 'package:new_project_1/Constant/appImages.dart';
+import '../../Routes/app_pages.dart';
 import '../BOTTOMNAVIGATIONBAR/bottom_navigationbar.dart';
 import '../HOME/home.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 import '../WIDGETS/CARDS/cards.dart';
 import '../WIDGETS/CONTAINERS/containers.dart';
-
 class ChoseGoal extends StatefulWidget {
   const ChoseGoal({super.key});
-
   @override
   State<ChoseGoal> createState() => _ChoseGoalState();
 }
-
 class _ChoseGoalState extends State<ChoseGoal> {
   int? selectedIndex;
   @override
@@ -38,7 +38,10 @@ class _ChoseGoalState extends State<ChoseGoal> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 20),
-              headcontainer('Choose\nYour Goals', AppColors.white),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 30),
+                child: headcontainer('Choose\nYour Goals', AppColors.white),
+              ),
               const SizedBox(height: 20),
               buildHorizontalRow([
                 buildCard(0, 'Reduce Stress', AppImages.goal_1, 194),
@@ -71,12 +74,7 @@ class _ChoseGoalState extends State<ChoseGoal> {
                           ),
                         );
                       } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const BubbleBottomNav(),
-                          ),
-                        );
+                        Get.toNamed( AppPages.bottomNav);
                       }
                     },
                   ),
@@ -105,7 +103,7 @@ class _ChoseGoalState extends State<ChoseGoal> {
     return Padding(
       padding: const EdgeInsets.only(right: 10),
       child: SizedBox(
-        width: width,
+        width: width+20,
         height: 60,
         child: GestureDetector(
           onTap: () {

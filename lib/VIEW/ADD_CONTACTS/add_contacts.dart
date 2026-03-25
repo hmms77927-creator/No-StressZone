@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:new_project_1/Constant/appColors.dart';
+import 'package:new_project_1/Routes/app_pages.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CONTAINERS/containers.dart';
 import '../../Constant/appImages.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 import '../WIDGETS/TEXTFIELD/textfield.dart';
-
 class addcontacts extends StatefulWidget {
   const addcontacts({super.key});
-
   @override
   State<addcontacts> createState() => _addcontactsState();
 }
-
 class _addcontactsState extends State<addcontacts> {
-
   List<String> selectedContacts = [];
-
   bool isSelected = false;
   bool isSelect = false;
-
   void toggleContact(String name) {
     setState(() {
       if (selectedContacts.contains(name)) {
@@ -28,7 +25,6 @@ class _addcontactsState extends State<addcontacts> {
       }
     });
   }
-
   Widget contactItem(String name, String image) {
     return Column(
       children: [
@@ -47,7 +43,6 @@ class _addcontactsState extends State<addcontacts> {
       ],
     );
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -108,6 +103,7 @@ class _addcontactsState extends State<addcontacts> {
                       child: GestureDetector(
                         onTap: () {
                           setState(() {
+                            Get.toNamed(AppPages.sendMessage);
                             isSelected = !isSelected;
                           });
                         },
@@ -124,12 +120,12 @@ class _addcontactsState extends State<addcontacts> {
                         ),
                       ),
                     ),
-
                     SizedBox(
                       width: 172,
                       height: 127,
                       child: GestureDetector(
                         onTap: () {
+                          Get.toNamed(AppPages.groupPage1);
                           setState(() {
                             isSelect = !isSelect;
                           });

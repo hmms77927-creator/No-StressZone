@@ -42,7 +42,10 @@ class _GroupPage1State extends State<GroupPage1> {
                 ],
               ),
               Groupcard(text: 'Health Friends', onPressed:(){}),
-              PrimaryContainer(text: 'Weekly Leaderboard', colors:AppColors.white ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15,top: 10,bottom: 10),
+                child: PrimaryContainer(text: 'Weekly Leaderboard', colors:AppColors.white ),
+              ),
           Card(
             color: AppColors.cardcolor,
             child: Column(
@@ -66,8 +69,6 @@ class _GroupPage1State extends State<GroupPage1> {
             Padding(
               padding: const EdgeInsets.only(right: 10), child: subContainer(text: 'Player', colors: AppColors.white.withOpacity(0.8)),
             ),
-          
-          
           ],
                 ),
                 UserTile(name: 'John Smith', image: AppImages.addcontact1, score: 14, total:22),

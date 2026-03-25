@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:new_project_1/Constant/appColors.dart';
 import 'package:new_project_1/Constant/appImages.dart';
-
-
 class choseCard extends StatelessWidget {
   final String text;
   final String image;
@@ -18,8 +16,8 @@ class choseCard extends StatelessWidget {
       height: 60,
       width: 194,
       decoration: BoxDecoration(
-        color:isSelect?AppColors.yellowColor:AppColors.black ,
-        borderRadius: BorderRadiusDirectional.circular(50)
+        color:isSelect?AppColors.yellowColor:AppColors.cardcolor ,
+        borderRadius: BorderRadiusDirectional.circular(50),
       ),
       child: Row(
         children: [
@@ -163,7 +161,7 @@ class wellnesscard extends StatelessWidget {
             border: Border(top: BorderSide(width: 1,color: AppColors.white),
             bottom:  BorderSide(width: 1,color: AppColors.white),
               left:  BorderSide(width: 1,color: AppColors.white),
-              right:  BorderSide(width: 1,color: AppColors.white),
+              // right:  BorderSide(width: 1,color:Colors.transparent),
             )
           ),
           child: Row(
@@ -247,6 +245,7 @@ class FluxCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: isSelected ? AppColors.yellowColor : AppColors.black,
           borderRadius: BorderRadius.circular(15),
+          border: Border( bottom: BorderSide(width: 1,color: AppColors.white),top: BorderSide(width: 1,color: AppColors.white),left: BorderSide(width: 1,color: AppColors.white),)
         ),
         child: Row(
           children: [
@@ -292,27 +291,31 @@ class FluxCard extends StatelessWidget {
                 ],
               ),
             ),
-            // Button
-            SizedBox(
-              height: 30,
-              width: 135,
-              child: ElevatedButton(
-                onPressed: onPressed,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.black,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25)),
-                  side: BorderSide(color: AppColors.white),
+            GestureDetector(
+              onTap: onPressed,
+              child: Container(
+                width: 135,
+                height: 30,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.black,
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border(
+                    top: BorderSide(color:AppColors.white),
+                    left: BorderSide(color:AppColors.white),
+                    bottom: BorderSide(color:AppColors.white),
+                    right: BorderSide.none,
+                  ),
                 ),
                 child: const Text(
-                  'Add to Playlist',
-                  style: TextStyle(
-                      color: AppColors.white,
-                      fontSize: 12,
-                      fontWeight: FontWeight.w600),
-                ),
+                        'Add to Playlist',
+                        style: TextStyle(
+                            color: AppColors.white,
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600),
+                      ),
+                    ),
               ),
-            ),
           ],
         ),
       ),
@@ -583,16 +586,48 @@ Container(
 Spacer(),
           Padding(
             padding: const EdgeInsets.only(right: 20),
-            child: TextButton.icon(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(25),
+                border: Border(
+                  top: BorderSide(color: AppColors.white),
+                  left: BorderSide(color: AppColors.white),
+                  bottom: BorderSide(color: AppColors.white),
+                  right: BorderSide.none,
+                ),
+              ),
+              child: TextButton.icon(
                 style: TextButton.styleFrom(
                   backgroundColor: AppColors.cardcolor,
-                  shape:RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(25)
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
                   ),
-                  side: BorderSide(color: AppColors.white)
                 ),
-                onPressed: onPressed,icon:Image.asset(images), label: Text(title,style: TextStyle(fontWeight:FontWeight.w600,fontSize: 14,color: AppColors.white),)),
+                onPressed: onPressed,
+                icon: Image.asset(images),
+                label: Text(
+                  title,
+                  style: TextStyle(
+                    fontWeight: FontWeight.w600,
+                    fontSize: 14,
+                    color: AppColors.white,
+                  ),
+                ),
+              ),
+            ),
           )
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 20),
+          //   child: TextButton.icon(
+          //       style: TextButton.styleFrom(
+          //         backgroundColor: AppColors.cardcolor,
+          //         shape:RoundedRectangleBorder(
+          //             borderRadius: BorderRadius.circular(25)
+          //         ),
+          //         side: BorderSide(color: AppColors.white)
+          //       ),
+          //       onPressed: onPressed,icon:Image.asset(images), label: Text(title,style: TextStyle(fontWeight:FontWeight.w600,fontSize: 14,color: AppColors.white),)),
+          // )
         ],
       ),
     );

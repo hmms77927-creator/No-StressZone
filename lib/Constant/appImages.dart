@@ -35,7 +35,7 @@ class AppImages{
   static const String communitybottom='assets/image/Community12.png';
   static const String homepic='assets/image/home-pic.png';
   static const String emoji1='assets/image/emoji1.png';
-  static const String emoji2='assets/image/home-pic.png';
+  static const String emoji2='assets/image/goal_1.png';
   static const String emoji3='assets/image/home-pic.png';
   static const String emoji4='assets/image/home-pic.png';
   static const String emoji5='assets/image/home-pic.png';
@@ -49,4 +49,9 @@ class AppSVG{
   static const String community1='assets/icons/community_group1.svg';
   static const String community2='assets/icons/community3.svg';
   static const String community3='assets/icons/community2.svg';
+  static const String emoji_1='assets/icons/emoji1.svg';
+  static const String emoji_2='assets/icons/emoji2.svg';
+  static const String emoji_3='assets/icons/emoji3.svg';
+  static const String emoji_4='assets/icons/emoji4.svg';
+  static const String emoji_5='assets/icons/emoji5.svg';
 }

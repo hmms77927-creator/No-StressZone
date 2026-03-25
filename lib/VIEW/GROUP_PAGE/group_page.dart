@@ -127,8 +127,7 @@ double value2=0.5;
               Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: LeaderCard(text: 'Mary Johnson', image:AppImages.addcontact2, onPressed: (){}, subtext: '2', images: AppImages.buttonImage, title: '140',),
-              )
-          
+              ),
             ],
           ) ),
         ),

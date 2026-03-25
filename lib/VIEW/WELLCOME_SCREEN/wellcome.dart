@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:new_project_1/Constant/appImages.dart';
-
+import '../../Routes/app_pages.dart';
 import '../CHOCE_YOUR_GOAL/chose_goal.dart';
 
 class Wellcome extends StatefulWidget {
@@ -19,10 +21,7 @@ class _WellcomeState extends State<Wellcome> {
   void initState() {
     super.initState();
     timer = Timer(Duration(seconds: 5), () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => ChoseGoal()),
-      );
+      Get.toNamed(AppPages.choseGoal);
     });
   }
   @override
@@ -39,3 +38,4 @@ class _WellcomeState extends State<Wellcome> {
     );
   }
 }
+

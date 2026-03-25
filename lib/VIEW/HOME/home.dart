@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../../Constant/appColors.dart';
 import '../../Constant/appImages.dart';
+import '../../Routes/app_pages.dart';
 import '../Community/community.dart';
 import '../FLUXSOOUND/flux.dart';
 import '../GROUP_PAGE/group_page.dart';
@@ -11,14 +14,14 @@ import '../MENTAL_WELLNESS/metall_wellness.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 import '../WIDGETS/CONTAINERS/containers.dart';
 
-class home extends StatefulWidget {
-  const home({super.key});
+class HomeScreen extends StatefulWidget {
+  const HomeScreen({super.key});
 
   @override
-  State<home> createState() => _homeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _homeState extends State<home> {
+class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = -1; // 👈 BEST PRACTICE
 
   double value = 0.6;
@@ -46,8 +49,6 @@ class _homeState extends State<home> {
               padding: const EdgeInsets.symmetric(horizontal: 12),
               child: Column(
                 children: [
-
-                  /// 🔹 TOP HEADER
                   Row(
                     children: [
                       Column(
@@ -76,53 +77,68 @@ class _homeState extends State<home> {
                       ),
                     ],
                   ),
-
                   SizedBox(height: 15),
-                  Container(
-                    width: double.infinity,
-                    height: 120,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [
-                          AppColors.white.withOpacity(0.47),
-                          AppColors.white.withOpacity(0.0),
-                        ],
-                      ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15,bottom: 15),
+                    child: ClipRRect(
                       borderRadius: BorderRadius.circular(25),
-                      border: Border(
-                        top: BorderSide(color: AppColors.white),
-                        bottom: BorderSide(color: AppColors.yellowColor),
-                      ),
-                    ),
-                    child: Row(
-                      children: [
-                        CircularPercentIndicator(
-                          radius: 40,
-                          lineWidth: 12,
-                          percent: 0.7,
-                          progressColor: AppColors.yellowColor,
-                          circularStrokeCap: CircularStrokeCap.round,
-                          center: PrimaryContainer(
-                            text: '33%',
-                            colors: AppColors.yellowColor,
+                      child: Container(
+                        width: 353,
+                        height: 124,
+                        decoration: BoxDecoration(
+                          gradient: LinearGradient(
+                            colors: [
+                              AppColors.white.withOpacity(0.47),
+                              AppColors.cardcolor,
+                            ],
+                            begin: Alignment.topLeft,
+                          ),
+                          border: Border(
+                            top: BorderSide(color: AppColors.white, width: 1),
+                            right:BorderSide(color: AppColors.black,width: 1) ,
+                            bottom: BorderSide(
+                              color: AppColors.yellowColor,
+                              width: 1,
+                            ),
                           ),
                         ),
-                        SizedBox(width: 10),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Homebodycontainer1(text: 'Activities of the'),
-                            Row(
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: CircularPercentIndicator(
+                                radius: 40,
+                                lineWidth: 8,
+                                percent: 0.6,
+                                progressColor: AppColors.yellowColor,
+                                circularStrokeCap: CircularStrokeCap.round,
+                                center: PrimaryContainer(
+                                  text: '33%',
+                                  colors: AppColors.yellowColor,
+                                ),
+                              ),
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Homebodycontainer1(text: 'Day 1/3'),
-                                SizedBox(width: 5),
-                                Image.asset(AppImages.homepic, width: 20),
+                                Homebodycontainer1(text: 'Activities of the'),
+                                Row(
+                                  children: [
+                                    Bodycontainer2(text:'Day 1/3' ),
+                                    Container(
+                                      width: 21,
+                                      height: 22,
+                                      child: Image.asset(AppImages.homepic),
+                                    ),
+                                  ],
+                                ),
                               ],
-                            )
+                            ),
                           ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                   SizedBox(height: 15),
@@ -139,37 +155,22 @@ class _homeState extends State<home> {
                           setState(() {
                             selectedIndex = 0;
                           });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => MentalWellness()),
-                          );
+                          Get.toNamed(AppPages.mentalWellness);
                         },
                         child: homecontainer(
                           text: 'Mental\n Wellness',
-                          colors: selectedIndex == 0
-                              ? AppColors.black
-                              : AppColors.white,
+                          colors: selectedIndex == 0 ? AppColors.black : AppColors.white,
                           image: AppImages.home1,
-                          containcolors: selectedIndex == 0
-                              ? AppColors.yellowColor
-                              : AppColors.black,
+                          containcolors: selectedIndex == 0 ? AppColors.yellowColor : AppColors.black,
                           isSelected: selectedIndex == 0,
                         ),
                       ),
-
-                      /// 1
                       GestureDetector(
                         onTap: () {
                           setState(() {
                             selectedIndex = 1;
                           });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Flux()),
-                          );
+                          Get.toNamed(AppPages.flux);
                         },
                         child: homecontainer(
                           text: 'Flux\n Sounds',
@@ -183,19 +184,12 @@ class _homeState extends State<home> {
                           isSelected: selectedIndex == 1,
                         ),
                       ),
-
-                      /// 2
                       GestureDetector(
                         onTap: () {
                           setState(() {
                             selectedIndex = 2;
                           });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => Community()),
-                          );
+                          Get.toNamed(  AppPages.community);
                         },
                         child: homecontainer(
                           text: 'Community',
@@ -209,19 +203,12 @@ class _homeState extends State<home> {
                           isSelected: selectedIndex == 2,
                         ),
                       ),
-
-                      /// 3
                       GestureDetector(
                         onTap: () {
                           setState(() {
                             selectedIndex = 3;
                           });
-
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => GroupPage()),
-                          );
+                          Get.toNamed( AppPages.groupPage);
                         },
                         child: homecontainer(
                           text: 'Affirmation\n of the Day',
@@ -237,9 +224,7 @@ class _homeState extends State<home> {
                       ),
                     ],
                   ),
-
                   SizedBox(height: 20),
-
                   BodyLastContainer(
                     text: 'Anxiety Reduction Routine',
                     title: 'To Week 2 Day 3',

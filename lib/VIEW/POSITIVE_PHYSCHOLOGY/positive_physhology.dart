@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:new_project_1/Constant/appColors.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CONTAINERS/containers.dart';
 import 'package:new_project_1/VIEW/WIDGETS/TEXTFIELD/textfield.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 
+import '../../Constant/appImages.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 
 class PositivePhyshology extends StatefulWidget {
@@ -17,7 +19,13 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
   int selectedIndex = 3;
   double value = 70;
 
-  final List moods = ["😡","🙂","😐","😊","😄"];
+  final List<String> items = [
+    AppSVG.emoji_1,
+    AppSVG.emoji_2,
+    AppSVG.emoji_3,
+    AppSVG.emoji_4,
+    AppSVG.emoji_5,
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +51,7 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                 Center(child: headerContainer(text: 'Positive Psychology', colors: AppColors.white)),
                 Padding(
                   padding: const EdgeInsets.only(top: 10,bottom: 10),
-                  child: Center(child: PrimaryContainer(text: 'What are you Grateful For Today?', colors:AppColors.white )),
+                  child: PrimaryContainer(text: 'What are you Grateful For Today?', colors:AppColors.white ),
                 ),
             Padding(
               padding: const EdgeInsets.only(left: 10,bottom: 15,right: 10),
@@ -52,12 +60,9 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                 Container(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 15),
-                        child: PrimaryContainer(text: 'Mood Tracking ', colors: AppColors.white),
-                      ),
-                  Center(
+                      Center(
                     child: Container(
             width: 340,
             padding: const EdgeInsets.all(20),
@@ -68,8 +73,6 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-            
-                /// TITLE
                 const Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -81,15 +84,11 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                     ),
                   ),
                 ),
-            
-                const SizedBox(height: 20),
-            
-                /// GAUGE
                 SizedBox(
-                  height: 190,
+                  height: 250, // pehle 190, ab bada
+                  width: 250,  // optional, agar square chahiye
                   child: SfRadialGauge(
                     axes: [
-            
                       RadialAxis(
                         minimum: 0,
                         maximum: 100,
@@ -97,64 +96,56 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                         endAngle: 0,
                         showLabels: false,
                         showTicks: false,
-            
                         axisLineStyle: const AxisLineStyle(
-                          thickness: 22,
+                          thickness: 30, // pehle 22, ab thick for bigger gauge
                           cornerStyle: CornerStyle.bothCurve,
+                          color: Colors.transparent,
                         ),
-            
                         ranges: [
-            
                           GaugeRange(
                             startValue: 0,
-                            endValue: 20,
-                            startWidth: 30,
-                            endWidth: 30,
+                            endValue: 19.5,
+                            startWidth: 50, // bada karo
+                            endWidth: 50,   // bada karo
                             color: const Color(0xffD58D74),
                           ),
-            
                           GaugeRange(
-                            startValue: 20,
-                            endValue: 40,
-                            startWidth: 30,
-                            endWidth: 30,
+                            startValue: 20.5,
+                            endValue: 39.5,
+                            startWidth: 50,
+                            endWidth: 50,
                             color: const Color(0xff8AD39B),
                           ),
-            
                           GaugeRange(
-                            startValue: 40,
-                            endValue: 60,
-                            startWidth: 30,
-                            endWidth: 30,
+                            startValue: 40.5,
+                            endValue: 59.5,
+                            startWidth: 50,
+                            endWidth: 50,
                             color: const Color(0xffE8C06C),
                           ),
-            
                           GaugeRange(
-                            startValue: 60,
-                            endValue: 80,
-                            startWidth: 30,
-                            endWidth: 30,
+                            startValue: 60.5,
+                            endValue: 79.5,
+                            startWidth: 50,
+                            endWidth: 50,
                             color: const Color(0xff8EC3DA),
                           ),
-            
                           GaugeRange(
-                            startValue: 80,
-                            startWidth: 30,
-                            endWidth: 30,
+                            startValue: 80.5,
                             endValue: 100,
-                            color: const Color(0xffE2A5C7),
+                            startWidth: 50,
+                            endWidth: 50,
+                            color: AppColors.pinkcolor,
                           ),
                         ],
-            
                         pointers: [
-            
                           NeedlePointer(
                             value: value,
-                            needleLength: 0.6,
-                            needleColor: Colors.yellow,
+                            needleLength: 0.5, // thoda lamba karo
+                            needleColor: AppColors.yellowColor,
                             knobStyle: const KnobStyle(
                               color: Colors.white,
-                              knobRadius: 0.07,
+                              knobRadius: 0.08, // knob bhi thoda bada
                             ),
                           )
                         ],
@@ -162,16 +153,13 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                     ],
                   ),
                 ),
-            
                 const SizedBox(height: 25),
-            
-                /// EMOJIS
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: List.generate(
-                    moods.length,
+                    items.length,
                         (index) => GestureDetector(
-            
+
                       onTap: (){
                         setState(() {
                           selectedIndex = index;
@@ -182,7 +170,9 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                         padding: const EdgeInsets.all(12),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: const Color(0xff2A2A2E),
+                          // color: const Color(0xff2A2A2E),
+                          border: Border(bottom:BorderSide(width: 1,color: AppColors.white),top:BorderSide(width: 1,color: AppColors.white),left: BorderSide(width: 1,color: AppColors.white),right: BorderSide(width: 1,color: AppColors.white),   ),
+                          gradient: LinearGradient(colors: [AppColors.white.withOpacity(0.47),AppColors.black]),
                           boxShadow: index == selectedIndex
                               ? [
                             BoxShadow(
@@ -193,9 +183,10 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                           ]
                               : [],
                         ),
-                        child: Text(
-                          moods[index],
-                          style: const TextStyle(fontSize: 22),
+                        child: SvgPicture.asset(
+                          items[index],   // SVG path
+                          width: 30,
+                          height: 30,
                         ),
                       ),
                     ),
@@ -219,13 +210,22 @@ class _PositivePhyshologyState extends State<PositivePhyshology> {
                     children: [
                       SizedBox(
                           width: 120,
-                          child: Videobottombutton(text: 'Morning Flow', onPressed: (){})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(text: 'Morning Flow', onPressed: (){}),
+                          )),
                       SizedBox(
                           width: 141,
-                          child: Videobottombutton(text: 'Mid-Day Stretch', onPressed: (){})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(text: 'Mid-Day-Stretch', onPressed: (){}),
+                          )),
                       SizedBox(
                           height: 38,
-                          child: Videobottombutton(text: ' Evening Relax', onPressed: (){})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(text: ' Evening-Relax', onPressed: (){}),
+                          )),
                     ],
                   ),
                 )

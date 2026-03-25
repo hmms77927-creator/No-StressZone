@@ -70,14 +70,12 @@ class homecontainer extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        border: Border.all(color: AppColors.white),
+        border:Border(top: BorderSide(width: 1,color:AppColors.white ),bottom: BorderSide(width: 1,color:AppColors.white ),left: BorderSide(width: 1,color:AppColors.white ),) ,
         color: containcolors,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
-          /// 🔹 ICON CONTAINER
           Container(
             width: 50,
             height: 50,
@@ -145,6 +143,28 @@ class Homebodycontainer1 extends StatelessWidget {
           fontSize: 26,
           fontWeight: FontWeight.w400,
           color: AppColors.white,
+        ),
+      ),
+    );
+  }
+}
+
+
+class Bodycontainer2 extends StatelessWidget {
+  final String text;
+  const Bodycontainer2({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child:  Text(
+        text,
+        style: TextStyle(
+          fontSize: 26,
+          fontWeight: FontWeight.w700,
+          color: AppColors.white,
+          fontFamily: 'Urbanist',
+          fontStyle: FontStyle.italic,
         ),
       ),
     );
@@ -239,15 +259,35 @@ class communitycontactcontainer extends StatelessWidget {
           Container(      child: Text(text,style: TextStyle(color: AppColors.white,fontSize: 18,fontWeight: FontWeight.w600),),
           ),
           Spacer(),
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.black,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(25),
-                  side:BorderSide(color: AppColors.white ,width: 1)
-                )
-              ),
-              onPressed: onPressed, child:Text(title, style: TextStyle(fontWeight: FontWeight.w600,fontSize: 14,color: AppColors.yellowColor),))
+          Padding(
+            padding: const EdgeInsets.only(right: 10),
+            child: GestureDetector(
+                onTap: onPressed,
+                child: Container(
+                  width: 60,
+                height: 37,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                color: AppColors.black,
+                borderRadius: BorderRadius.circular(25),
+                border: Border(
+                top: BorderSide(color:AppColors.white),
+                left: BorderSide(color:AppColors.white),
+                bottom: BorderSide(color:AppColors.white),
+                right: BorderSide.none,
+                ),
+                ),
+                child: Text(
+                title,
+                style: TextStyle(
+                fontWeight: FontWeight.w600,
+                fontSize: 14,
+                color: AppColors.yellowColor,
+                ),
+                ),
+                ),
+                ),
+          ),
         ],
       ),
     );

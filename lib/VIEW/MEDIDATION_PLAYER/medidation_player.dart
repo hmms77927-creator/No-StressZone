@@ -162,16 +162,25 @@ class _MedidationPlayerState extends State<MedidationPlayer> {
                     children: [
                     SizedBox(
                         width: 120,
-                        child: Videobottombutton(text: 'Morning Flow', onPressed: (){})),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Videobottombutton(text: 'Morning Flow', onPressed: (){}),
+                        )),
                       SizedBox(
                           width: 141,
-                          child: Videobottombutton(text: 'Mid-Day Stretch', onPressed: (){})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(text: 'Mid-Day Stretch', onPressed: (){}),
+                          )),
                       SizedBox(
                           height: 38,
-                          child: Videobottombutton(text: ' Evening Relax', onPressed: (){})),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 10,right: 10),
+                            child: Videobottombutton(text: ' Evening Relax', onPressed: (){}),
+                          )),
                     ],
                   ),
-                )
+                ),
               ],
             ),
           ),

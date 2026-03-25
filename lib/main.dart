@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:new_project_1/Routes/app_pages.dart';
 import 'package:new_project_1/VIEW/HOME/home.dart';
 import 'package:new_project_1/VIEW/WELLCOME_SCREEN/wellcome.dart';
 import 'VIEW/ADD_CONTACTS/add_contacts.dart';
@@ -31,9 +32,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
+        fontFamily: 'Urbanist',
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: BubbleBottomNav(),
+      home:Wellcome(),
+      getPages: AppPages.routes,
     );
   }
 }

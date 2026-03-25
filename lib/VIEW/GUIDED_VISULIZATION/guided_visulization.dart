@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-
 import '../../Constant/appColors.dart';
 import '../WIDGETS/BUTTONS/app_buttons.dart';
 import '../WIDGETS/CONTAINERS/containers.dart';
@@ -8,7 +7,6 @@ import '../WIDGETS/TEXTFIELD/textfield.dart';
 
 class GuidedVisulization extends StatefulWidget {
   const GuidedVisulization({super.key});
-
   @override
   State<GuidedVisulization> createState() => _GuidedVisulizationState();
 }
@@ -35,20 +33,14 @@ class _GuidedVisulizationState extends State<GuidedVisulization> {
     _controller.dispose();
     super.dispose();
   }
-
-  /// forward 10 sec
   void forwardVideo() async {
     final position = await _controller.position;
     _controller.seekTo(position! + Duration(seconds: 10));
   }
-
-  /// backward 10 sec
   void backwardVideo() async {
     final position = await _controller.position;
     _controller.seekTo(position! - Duration(seconds: 10));
   }
-
-  /// play pause
   void playPause() {
     setState(() {
       _controller.value.isPlaying
@@ -106,10 +98,8 @@ class _GuidedVisulizationState extends State<GuidedVisulization> {
               ValueListenableBuilder(
                 valueListenable: _controller,
                 builder: (context, VideoPlayerValue value, child) {
-          
                   final position = value.position.inSeconds.toDouble();
                   final duration = value.duration.inSeconds.toDouble();
-          
                   return Slider(
                     min: 0,
                     max: duration > 0 ? duration : 1,
@@ -123,26 +113,20 @@ class _GuidedVisulizationState extends State<GuidedVisulization> {
                 },
               ),
               SizedBox(height: 20),
-          
-              /// Controls
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-          
-                  /// Back 10 sec
                   IconButton(
                     icon: Icon(Icons.skip_previous,
                         color: AppColors.white, size: 35),
                     onPressed: backwardVideo,
                   ),
-          
-                  /// Play Pause
                   IconButton(
                     icon: Icon(
                       _controller.value.isPlaying
                           ? Icons.pause_circle
                           : Icons.play_circle,
-                      color: AppColors.yellowColor.withOpacity(0.53),
+                      color: AppColors.yellowColor,
                       size: 50,
                     ),
                     onPressed: playPause,
@@ -156,7 +140,6 @@ class _GuidedVisulizationState extends State<GuidedVisulization> {
                   ),
                 ],
               ),
-          
               Padding(
                 padding: const EdgeInsets.only(left: 15,top: 15,bottom: 15),
                 child: PrimaryContainer(text: 'Options', colors:AppColors.white ),
@@ -168,13 +151,22 @@ class _GuidedVisulizationState extends State<GuidedVisulization> {
                   children: [
                     SizedBox(
                         width: 120,
-                        child: Videobottombutton(text: 'Morning Flow', onPressed: (){})),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Videobottombutton(text: 'Morning Flow', onPressed: (){}),
+                        )),
                     SizedBox(
                         width: 141,
-                        child: Videobottombutton(text: 'Mid-Day Stretch', onPressed: (){})),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Videobottombutton(text: 'Mid-Day Stretch', onPressed: (){}),
+                        )),
                     SizedBox(
                         height: 38,
-                        child: Videobottombutton(text: ' Evening Relax', onPressed: (){})),
+                        child: Padding(
+                          padding: const EdgeInsets.only(left: 10,right: 10),
+                          child: Videobottombutton(text: ' Evening Relax', onPressed: (){}),
+                        )),
                   ],
                 ),
               )

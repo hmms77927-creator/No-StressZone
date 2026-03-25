@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:new_project_1/Constant/appColors.dart';
 import 'package:new_project_1/Constant/appImages.dart';
+import 'package:new_project_1/Routes/app_pages.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CARDS/cards.dart';
 import 'package:new_project_1/VIEW/WIDGETS/CONTAINERS/containers.dart';
 import 'package:new_project_1/VIEW/WIDGETS/TEXTFIELD/textfield.dart';
+
+import '../BRETHWORK/breathwork.dart';
+import '../SOUND_PLAYER/sound_player.dart';
 class Flux extends StatefulWidget {
   const Flux({super.key});
 
@@ -67,6 +73,7 @@ class _FluxState extends State<Flux> {
                         image: AppImages.flux1,
                         isSelected: selectedIndex == 0,
                         onTap: () {
+                          Get.toNamed(AppPages.soundPlayer);
                           setState(() {
                             selectedIndex = selectedIndex == 0 ? null : 0;
                           });
@@ -79,6 +86,7 @@ class _FluxState extends State<Flux> {
                         image: AppImages.flux2,
                         isSelected: selectedIndex == 1,
                         onTap: () {
+                          Get.toNamed(AppPages.breathWork);
                           setState(() {
                             selectedIndex = selectedIndex == 1 ? null : 1;
                           });
@@ -108,112 +116,3 @@ class _FluxState extends State<Flux> {
     );
   }
 }
-// class Flux extends StatefulWidget {
-//   const Flux({super.key});
-//
-//   @override
-//   State<Flux> createState() => _FluxState();
-// }
-//
-// class _FluxState extends State<Flux> {
-//   int? selectedIndex; // tracks which card is selected
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       body: Container(
-//         width: double.infinity,
-//         height: double.infinity, // full screen
-//         decoration: BoxDecoration(
-//           gradient: LinearGradient(
-//             begin: Alignment.topRight,
-//             end: Alignment.bottomLeft,
-//             colors: [
-//               AppColors.yellowColor.withOpacity(0.55),
-//               AppColors.screenColor
-//             ],
-//             stops: const [0.0, 0.2],
-//           ),
-//         ),
-//         child: SafeArea(
-//           child: SingleChildScrollView(
-//             child: Column(
-//               crossAxisAlignment: CrossAxisAlignment.start,
-//               children: [
-//                 Center(child: headerContainer(text: 'Flux Sounds', colors: AppColors.white)),
-//                 Padding(
-//                   padding: const EdgeInsets.only(left: 15,right: 15,top: 15),
-//                   child: HeaderField(
-//                     text: 'Search',
-//                     prefixIcon: Icon(Icons.search, color: AppColors.white),
-//                   ),
-//                 ),
-//                 Padding(
-//                   padding: const EdgeInsets.only(left: 15,top: 15),
-//                   child: PrimaryContainer(text: 'Categories', colors: AppColors.white),
-//                 ),
-//
-//                 Padding(
-//                   padding: const EdgeInsets.only(top: 15),
-//                   child: Center(
-//                     child: fluxcard(
-//                       text: 'Rain',
-//                       title: 'Peaceful Rainfall',
-//                       image: AppImages.flux1,
-//                       colors: selectedIndex == 0 ? AppColors.black : AppColors.white,
-//                       isSelect: selectedIndex == 0,
-//                       onTap: () {
-//                         setState(() {
-//                           selectedIndex = selectedIndex == 0 ? null : 0;
-//                         });
-//                       },
-//                       onPressed: () {},
-//                     ),
-//                   ),
-//                 ),
-//
-//                 Padding(
-//                   padding: const EdgeInsets.only(top: 15),
-//                   child: Center(
-//                     child: fluxcard(
-//                       text: 'Ocean',
-//                       title: 'Gentle Ocean',
-//                       image: AppImages.flux2,
-//                       colors: selectedIndex == 1 ? AppColors.black : AppColors.white,
-//                       isSelect: selectedIndex == 1,
-//                       onTap: () {
-//                         setState(() {
-//                           selectedIndex = selectedIndex == 1 ? null : 1;
-//                         });
-//                       },
-//                       onPressed: () {},
-//                     ),
-//                   ),
-//                 ),
-//
-//                 Padding(
-//                   padding: const EdgeInsets.only(top: 15),
-//                   child: Center(
-//                     child: fluxcard(
-//                       text: 'Whit Noise',
-//                       title: 'Ambient Sound',
-//                       image: AppImages.flux3,
-//                       colors: selectedIndex == 2 ? AppColors.black : AppColors.white,
-//                       isSelect: selectedIndex == 2,
-//                       onTap: () {
-//                         setState(() {
-//                           selectedIndex = selectedIndex == 2 ? null : 2;
-//                         });
-//                       },
-//                       onPressed: () {},
-//                     ),
-//                   ),
-//                 ),
-//               ],
-//             ),
-//           ),
-//         ),
-//       ),
-//     );
-//   }
-// }

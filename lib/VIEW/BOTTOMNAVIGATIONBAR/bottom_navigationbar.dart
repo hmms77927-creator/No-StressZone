@@ -18,7 +18,7 @@ class _BubbleBottomNavState extends State<BubbleBottomNav> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    home(),Community(),MentalWellness(),GroupPage()
+    HomeScreen(),Community(),MentalWellness(),GroupPage()
   ];
 
   @override
@@ -45,7 +45,7 @@ class _BubbleBottomNavState extends State<BubbleBottomNav> {
             String label;
             switch (index) {
               case 0:
-                icon = Icons.home_rounded;
+                icon = Icons.home;
                 label = "Home";
                 break;
               case 1:
@@ -69,6 +69,7 @@ class _BubbleBottomNavState extends State<BubbleBottomNav> {
                 decoration: BoxDecoration(
                   color: isActive ? AppColors.yellowColor : AppColors.white,
                   borderRadius: BorderRadius.circular(20),
+
                 ),
                 child: Row(
                   children: [
