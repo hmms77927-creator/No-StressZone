@@ -110,3 +110,95 @@ class VideoTextField extends StatelessWidget {
     );;
   }
 }
+
+//Login Field
+class LoginField extends StatelessWidget {
+  final String text;
+  final TextEditingController controller;
+  final IconData? icon;
+  final VoidCallback? onPressed; // 👈 make optional
+
+  const LoginField({
+    super.key,
+    required this.text,
+    required this.controller,
+    this.icon,
+    this.onPressed,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 353,
+      height: 60,
+      child: TextField(
+        controller: controller,
+        style: TextStyle(color: AppColors.white),
+        decoration: InputDecoration(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25),
+            borderSide: BorderSide(width: 1, color: AppColors.white),
+          ),
+          hintText: text,
+          hintStyle: TextStyle(color: AppColors.white),
+          fillColor: AppColors.cardcolor,
+          filled: true,
+
+          // ✅ optional suffix icon
+          suffixIcon: icon != null
+              ? IconButton(
+            onPressed: onPressed,
+            icon: Icon(icon),
+          )
+              : null,
+
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25),
+            borderSide: BorderSide(width: 1, color: AppColors.white),
+          ),
+          errorBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(25),
+            borderSide: BorderSide(width: 1, color: AppColors.pinkcolor),
+          ),
+        ),
+      ),
+    );
+  }
+}
+// class LoginField extends StatelessWidget {
+// final String text;
+// final TextEditingController controller;
+// final IconData? icon;
+// final VoidCallback onPressed;
+//   const LoginField({super.key, required this.text, required this.controller, this.icon, required this.onPressed});
+//
+//   @override
+//   Widget build(BuildContext context) {
+//     return SizedBox(
+//       width: 353,
+//       height: 60,
+//       child: TextField(
+//         controller: controller,
+//         style: TextStyle(color: AppColors.white),
+//         decoration: InputDecoration(
+//         border: OutlineInputBorder(
+//           borderRadius: BorderRadius.circular(25),
+//           borderSide: BorderSide(width: 1,color: AppColors.white),
+//         ),
+//           hintText:text,hintStyle: TextStyle(color: AppColors.white),
+//           fillColor: AppColors.cardcolor,
+//           filled:true,
+//           suffixIcon:IconButton(onPressed: onPressed, icon:Icon(icon)),
+//           focusedBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(25),
+//             borderSide: BorderSide(width: 1,color: AppColors.white),
+//           ),
+//           errorBorder: OutlineInputBorder(
+//             borderRadius: BorderRadius.circular(25),
+//             borderSide: BorderSide(width: 1,color: AppColors.pinkcolor),
+//           )
+//         ),
+//       ),
+//     );
+//   }
+// }

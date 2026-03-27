@@ -106,3 +106,37 @@ class Videobottombutton extends StatelessWidget {
         onPressed: onPressed, child: Text(text,style: TextStyle(color: AppColors.white,fontSize: 15,fontWeight:FontWeight.w400),));
   }
 }
+
+// CustomText Login button
+class CustomtextLoginbutton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  final Color color;
+  const CustomtextLoginbutton({super.key, required this.text, required this.onPressed, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(onPressed: onPressed, child:Text(text,style:TextStyle(color:color,fontSize: 18,fontWeight: FontWeight.w500) ,),);
+  }
+}
+
+// CustomElevated Login button
+class CustomElevatedLoginButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  const CustomElevatedLoginButton({super.key, required this.text, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 353,
+      height: 60,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor: AppColors.yellowColor,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(25),)
+        ),
+        onPressed: onPressed, child:Text(text,style:TextStyle(color: AppColors.black,fontSize: 22,fontWeight: FontWeight.bold) ,),),
+    );
+  }
+}

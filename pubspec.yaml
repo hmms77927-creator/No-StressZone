@@ -48,6 +48,11 @@ dependencies:
   waveform_flutter: ^1.2.0
   get: ^4.7.3
   just_waveform: ^0.0.7
+  pinput: ^6.0.2
+  firebase_core: ^2.24.0
+  firebase_auth: ^4.13.0
+  cloud_firestore: ^4.8.0
+  google_sign_in: ^7.2.0
 
 
 
