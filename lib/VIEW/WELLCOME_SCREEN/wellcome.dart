@@ -21,7 +21,7 @@ class _WellcomeState extends State<Wellcome> {
   void initState() {
     super.initState();
     timer = Timer(Duration(seconds: 5), () {
-      Get.toNamed(AppPages.choseGoal);
+      Get.toNamed(AppPages.login);
     });
   }
   @override

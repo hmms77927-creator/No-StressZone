@@ -43,7 +43,7 @@ Padding(
 PrimaryContainer(text: 'To Recieve a Verification Code' , colors:AppColors.white),
 Padding(
   padding: const EdgeInsets.only(top: 20,bottom: 60),
-  child: LoginField(text: 'Mobile Number', controller:numbercontroller ),
+  child: LoginField(text: 'Mobile Number', controller:numbercontroller,obcure: true, ),
 ),
 Padding(
   padding: const EdgeInsets.only(top: 50),

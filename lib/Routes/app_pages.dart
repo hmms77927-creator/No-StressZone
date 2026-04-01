@@ -1,4 +1,7 @@
 import 'package:get/get.dart';
+import 'package:new_project_1/VIEW/Login/login.dart';
+import 'package:new_project_1/VIEW/Login/signup.dart';
+import 'package:new_project_1/VIEW/Profile/profile.dart';
 
 import '../VIEW/ADD_CONTACTS/add_contacts.dart';
 import '../VIEW/BOTTOMNAVIGATIONBAR/bottom_navigationbar.dart';
@@ -38,6 +41,9 @@ class AppPages{
   static const String sendMessage='/sendMessage';
   static const String soundPlayer='/soundPlayer';
   static const String breathWork='/breathWork';
+  static const String login='/login';
+  static const String signin='/signin';
+  static const String profile='/profile';
   static final routes=[
     GetPage(name: '/wellcome', page: () =>  Wellcome()),
     GetPage(name: '/home', page: () => HomeScreen()),
@@ -57,5 +63,8 @@ class AppPages{
     GetPage(name: '/positivePsychology', page: () =>  PositivePhyshology()),
     GetPage(name: '/sendMessage', page: () =>  SendMessage()),
     GetPage(name: '/soundPlayer', page: () =>  SoundPlayer()),
+    GetPage(name: '/login', page:()=>Login()),
+  GetPage(name: '/signin', page:()=>Signup()),
+    GetPage(name: '/profile', page:()=>Profile()),
   ];
 }

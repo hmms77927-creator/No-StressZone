@@ -116,14 +116,15 @@ class LoginField extends StatelessWidget {
   final String text;
   final TextEditingController controller;
   final IconData? icon;
-  final VoidCallback? onPressed; // 👈 make optional
+  final VoidCallback? onPressed;
+  final bool obcure;
 
   const LoginField({
     super.key,
     required this.text,
     required this.controller,
     this.icon,
-    this.onPressed,
+    this.onPressed, required this.obcure,
   });
 
   @override
@@ -133,6 +134,7 @@ class LoginField extends StatelessWidget {
       height: 60,
       child: TextField(
         controller: controller,
+        obscureText: obcure,
         style: TextStyle(color: AppColors.white),
         decoration: InputDecoration(
           border: OutlineInputBorder(
@@ -165,6 +167,41 @@ class LoginField extends StatelessWidget {
     );
   }
 }
+
+// Data fatch field
+class Datafetchfield extends StatelessWidget {
+  final String text;
+  final TextEditingController controller;
+  final IconData? icon;
+  const Datafetchfield({super.key, required this.text, required this.controller, this.icon});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      style: TextStyle(color: AppColors.white,fontSize: 18,fontWeight: FontWeight.w600),
+      controller: controller,
+      decoration: InputDecoration(
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide: BorderSide(width: 1, color: AppColors.white),
+        ),
+        hintText: text,
+        hintStyle: TextStyle(color: AppColors.white),
+        fillColor: AppColors.cardcolor,
+        filled: true,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide: BorderSide(width: 1, color: AppColors.white),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(25),
+          borderSide: BorderSide(width: 1, color: AppColors.pinkcolor),
+        ),
+      ),
+    );
+  }
+}
+
 // class LoginField extends StatelessWidget {
 // final String text;
 // final TextEditingController controller;

@@ -49,11 +49,10 @@ dependencies:
   get: ^4.7.3
   just_waveform: ^0.0.7
   pinput: ^6.0.2
-  firebase_core: ^2.24.0
-  firebase_auth: ^4.13.0
-  cloud_firestore: ^4.8.0
-  google_sign_in: ^7.2.0
-
+  firebase_core: ^2.32.0
+  firebase_auth: ^4.16.0
+  cloud_firestore: ^4.17.0
+  image_picker: ^1.0.0
 
 
 

@@ -6,6 +6,7 @@ import '../Community/community.dart';
 import '../GROUP_PAGE/group_page.dart';
 import '../HOME/home.dart';
 import '../MENTAL_WELLNESS/metall_wellness.dart';
+import '../Profile/profile.dart';
 
 class BubbleBottomNav extends StatefulWidget {
   const BubbleBottomNav({super.key});
@@ -18,7 +19,7 @@ class _BubbleBottomNavState extends State<BubbleBottomNav> {
   int _currentIndex = 0;
 
   final List<Widget> _pages = [
-    HomeScreen(),Community(),MentalWellness(),GroupPage()
+    HomeScreen(),Community(),MentalWellness(),Profile(),
   ];
 
   @override
@@ -53,14 +54,13 @@ class _BubbleBottomNavState extends State<BubbleBottomNav> {
                 label = "Community";
                 break;
               case 2:
-                icon = Icons.person;
-                label = "Person";
-                break;
-              default:
                 icon = Icons.settings;
                 label = "Settings";
+                break;
+              default:
+                icon = Icons.person;
+                label = "Person";
             }
-
             return GestureDetector(
               onTap: () => setState(() => _currentIndex = index),
               child: AnimatedContainer(

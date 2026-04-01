@@ -43,11 +43,11 @@ class _CreateNewpasswordState extends State<CreateNewpassword> {
             PrimaryContainer(text: 'From Previously Used Password' , colors:AppColors.white),
             Padding(
               padding: const EdgeInsets.only(top: 40,bottom: 10),
-              child: LoginField(text: '***********', controller:password1controller ),
+              child: LoginField(text: '***********', controller:password1controller,obcure:false, ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 10,bottom:40 ),
-              child: LoginField(text: '***********', controller:password2controller ),
+              child: LoginField(text: '***********', controller:password2controller,obcure:false, ),
             ),
             Padding(
               padding: const EdgeInsets.only(top: 60),
